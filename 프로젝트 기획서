@@ -5,11 +5,20 @@
     ○ 백엔드영역 : Python
     ○ 검색엔진 : ElasticSearch (필요하다면)
     ○ DataBase : MariaDB (버전 협의필요)
-    ○ JDK : openJDK13
+    ○ JDK : openJDK13 (버전 협의 필요)
+    ○ apach : 협의 필요
     ○ Python : 버전은 추 후 공유 드리겠습니다. (버전 더 찾아봐야함)
     ○ SERVER OS : CentOS7
     ○ Network : OpenSSL 1.1 이상 (추 후 TLS1.3적용을 위해)
     
+    ○ 구성이유 : HTML5 웹을 만들기위해선 필수
+                React javascript를 배우기 좋다. (facebook 제작 배포 제일 핫함)
+                CSS Framework 디테일한 디자인을 하기보단 우린 기술적인것을 배우고싶음. 디자인에 많은 시간을 들이지 않기 위해(두가지가 핫함 개인적으로 Bootstrap선호)
+                DataBase 무료임....
+                Python 다양한 라이브러리 및 오픈소스 이용가능 (백엔드 구성으로 실제로 많이 쓰임 / 문자열처리에 강점이 있는 언어)
+                openJDK13 너무 최신은 아닌 안정화된 버전 (근데 버그들이 좀 있는 듯 검토필요)
+                apach는 jdk 버전이 어떻게 되느냐에 따라 최신화 할 것임.
+                
     ○ 공유 사항은 위와 같으며, 아직 어떤 프로젝트를 시작할지 구체적으로 정하지 않았으나, 웹과 앱을 모두 만들 수 있는 언어들로 구성해봤습니다.
       SERVER OS, Network 쪽은 신경 쓰지 않으셔도 됩니다. 프로젝트가 순차적으로 진행되면, 클라우드 서버를 빌려 적용할 버전입니다.
       
