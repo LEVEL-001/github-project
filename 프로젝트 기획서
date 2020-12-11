@@ -23,3 +23,21 @@
       SERVER OS, Network 쪽은 신경 쓰지 않으셔도 됩니다. 프로젝트가 순차적으로 진행되면, 클라우드 서버를 빌려 적용할 버전입니다.
       
     ○ flutter프로젝트는 필요하다면 별도로 생성해서 진행 할 것입니다.
+    
+  툴 및 편집기 추천
+    ○ Code 작성 : Visual Studio Code
+    ○ Request and Respose : Postman
+    ○ SSH 접속 : Putty(Super Putty)
+   
+  설치 필요
+    ○ node.js (npx 별도 설치 필요)
+    ○ react
+    ○ Python
+    ○ MariaDB
+    ○ apach-tomcat
+    
+  참고
+    ○ https://www.youtube.com/watch?v=j2jhnq8RnfU&list=PL7jH19IHhOLPp990qs8MbSsUlzKcTKuCf&index=5 (노마드 코더 react 영상)
+    ○ https://www.youtube.com/watch?v=N8PPDLd0G70&list=PLuHgQVnccGMDMxfZEpLbzHPZUEwObEaZq&index=6 (생활코딩 Python 강의 영상)
+    ○ https://www.youtube.com/c/%EC%83%9D%ED%99%9C%EC%BD%94%EB%94%A91/playlists?view=58 (생활코딩 강의 영상 재생목록)
+    ○ 노마드 코더 영상은 기본 코딩 지식이 있을때 보는걸 추천, 생활코딩은 처음부터 차근차근 알려줌 코딩을 좀 알게된다면 지루할 수 있음 (노마드코더 기본지식 필요, 생활코딩 입문)
