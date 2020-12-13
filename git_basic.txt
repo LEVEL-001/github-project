@@ -1,0 +1,22 @@
+1.  git 파일을 올릴 폴더 생성
+2. 폴더 우클릭 후 Git bash Here을 클릭
+3. $git init                     // 초기화
+4. $git remote add origin https://github.com/LEVEL-001/github-project       // 해당 git 추가
+5. $git pull origin master                 // 해당 url git 자료 모두 추가  (폴더 확인해보면 전부 있음)
+6. $git status            // 현재 폴더와 git과의 싱크 상태 확인
+7. $git add .             // 현재 폴더와 git과 차이가 있을 때 수정하거나 추가해주는 명령어
+8. $git commit -m "message"
+9. $git push origin +master   // 실제 git에 push를 요청하는 명령어
+
+
+*계정 추가
+$ git config --global user.email "sgh1939@daum.net"
+$ git config --global user.name "Simgyuhwan"
+
+
+* git push
+$git status            //싱크 확인
+$git add .       
+$git commit -m "git basic"      
+$git push origin master 
+-> 로그인 요청
