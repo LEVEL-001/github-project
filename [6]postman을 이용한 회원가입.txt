@@ -1,0 +1,137 @@
+Body-parser Dependency:  client에서 보내주는 자료들을(이름, 이메일, 비밀번호)를 보내는 역할
+다운로드 -> $npm install body-parser --save
+
+Post Man(client 서버가 없기 때문에 대신하여 정보를 보내는 용도) : https://www.postman.com/downloads/                 
+<https://app.getpostman.com/join-team?invite_code=f21db8f4a8e26ce51700c8dcc8ab701c>
+
+
+*이제 client를 만든 후 회원정보를 받을 수 있게 한다. 
+
+index.js
+------------------------------------------------------------------------------
+const express = require('express')
+const app = express()
+const port = 5000
+const { User } = require("./models/User");
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose')
+
+// application/x-www-form-urlencode                  데이터를 분석해서 가져옴
+app.use(bodyParser.urlencoded({ extended: true }))
+// application/json                json 파일을 분석 후 가져옴
+app.use(bodyParser.json())
+
+mongoose.connect('mongodb+srv://gyuhwan:1234@boilerplate.bipfw.mongodb.net/dbname?retryWrites=true&w=majority', {
+    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
+}).then(() => console.log('MongoDB Connected...'))
+    .catch(err => console.log(err))
+
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
+app.post('/register', (req, res) => {
+    const user = new User(req.body)                                   //body Parser 사용
+
+    user.save((err, userInfo) => {                                                    // userinfo를 mongodb에 저장
+        if (err) return res.json({ success: false, err })                           //  에러 발생시 문구와 에러 표시 
+        return res.status(200).json({                                                      // 성공시 문구 표시
+            success: true
+        })
+    })
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+/models/user.js
+------------------------------------------------------------------------------
+const mongoose = require('mongoose')                   // mongo db 연동
+
+const userSchema = mongoose.Schema(                            // mongo로 schema 생성
+    {
+        name: {
+            type: String,
+            maxlength: 50
+        },
+        email: {
+            type: String,
+            trim: true,                           // 이메일 안에 space를 없애주는 역할
+            unique: 1
+        },
+        password: {
+            type: String,
+            minlength: 5
+        },
+        lastname: {
+            type: String,
+            maxlength: 50
+        },
+        role: {                                    // 관리자나 사용자의 권한 설정
+            type: Number,
+            defaults: 0                                  // 기본적으로 0을 줌
+        },
+        image: String,
+        token: {
+            type: String
+        },
+        tokenExp: {                                    // token 사용 기간
+            type: Number
+        }
+    })
+
+const User = mongoose.model('User', userSchema)                  // (모델명 , 스키마)
+
+module.exports = { User }                                    // 다른 곳에서도 모델을 사용할 수 있도록 export 설정
+------------------------------------------------------------------------------
+
+
+
+$npm run start 
+
+
+*postman 들어간 후 상단의 + 클릭  
+=> POST로 변경 후 $npm run start 후 나온 port와 url를 입력
+=> index.js에 app.post로 입력한 end point '/register' 를 뒤에 추가
+->http://localhost:5000/register
+=> Body 클릭
+=> raw 클릭
+=> Text -> JSON으로 변경
+
+->{
+    "name" : "sgh1939",
+    "email" : "sgh1939@daum.net",
+    "password" : "1234567"
+}
+입력 후 Send
+
+->  성공 :>
+{
+    "success": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
